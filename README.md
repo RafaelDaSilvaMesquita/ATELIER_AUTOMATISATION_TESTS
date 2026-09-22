@@ -2,6 +2,7 @@
 🎯Atelier “Testing as Code & API Monitoring”
 ------------------------------------------------------------------------------------------------------
 Par Rafael Da Silva Mesquita
+
 Année : 2026 - 2027
 
 Aujourd’hui, vous allez passer du rôle de développeur au rôle d’ingénieur qualité.  
