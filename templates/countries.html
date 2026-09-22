@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Pays — CountryLayer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-3">Liste des pays (CountryLayer)</h1>
+    <p class="text-muted">
+      {{ count }} pays — dernière mise à jour du cache :
+      {{ fetched_at or "jamais (le job GitHub Actions n'a pas encore tourné)" }}
+    </p>
+
+    <div class="table-responsive">
+      <table class="table table-striped bg-white align-middle">
+        <thead>
+          <tr>
+            <th></th><th>Nom</th><th>Capitale</th><th>Région</th><th>Population</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in countries %}
+          <tr>
+            <td>{% if c.flag %}<img src="{{ c.flag }}" alt="" width="32">{% endif %}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.capital }}</td>
+            <td>{{ c.region }}</td>
+            <td>{{ "{:,}".format(c.population) if c.population else "N/A" }}</td>
+          </tr>
+          {% else %}
+          <tr><td colspan="5" class="text-center text-muted">Aucune donnée en cache</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-4"><a href="/">&larr; Retour aux consignes</a> &middot; <a href="/dashboard">Voir le tableau de bord QoS</a></p>
+  </div>
+</body>
+</html>
